@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <unistd.h>
 
 using namespace std;
 vector<string> commands;
@@ -26,7 +26,13 @@ int main() {
       break;
     }
     if(userInput == "ls") {
-      // code for ls command
+      int pid = fork();
+      //cout << pid << endl;
+      if (pid==0){
+        execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
+        cout << "uofmsh> ";
+        }// code for ls command
+
     }
     if(userInput == "help") {
       for(int i = 0; i < commands.size(); i++) {

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1539137131 source:/home/critter42/tash/tash.cpp
+	<iostream>
+	<string>
+	<vector>
+	<unistd.h>
+
