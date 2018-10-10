@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <unistd.h>
 
 using namespace std;
@@ -10,14 +11,18 @@ int main() {
 
   while(true) {     //loop to continue prompting for commands
     cout << "uofmsh> "; //printing out to the console
-    cin >> userInput; //accepting user input to store in userInput
+    getline(cin, userInput,'\n'); //accepting user input to store in userInput
 
     if(userInput == "exit") {   //conditional for the exit command
       break;
     }
+
     if(userInput == "ls") {
-      pid_t pid = fork();
+      int pid = fork();
+      if (pid == 0){  //in the child process
+        execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
+        }
+      }
     }
-  }
   return 0;
 }
