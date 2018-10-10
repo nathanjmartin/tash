@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <unistd.h>
+#include<sys/wait.h>
 
 using namespace std;
 
@@ -19,8 +20,13 @@ int main() {
 
     if(userInput == "ls") {
       int pid = fork();
+
       if (pid == 0){  //in the child process
         execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
+        }
+
+      else if(pid > 0) {
+        wait(NULL);
         }
       }
     }
