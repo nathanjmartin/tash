@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <unistd.h>
-#include<sys/wait.h>
+#include <sys/wait.h>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main() {
     getline(cin, userInput,'\n'); //accepting user input to store in userInput
 
     if(userInput == "exit") {   //conditional for the exit command
-      break;
+      break;  //equivalent of setting status to 0 (false) to end the loop
     }
 
     if(userInput == "ls") {
@@ -24,9 +24,8 @@ int main() {
       if (pid == 0){  //in the child process
         execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
         }
-
-      else if(pid > 0) {
-        wait(NULL);
+      else if(pid > 0) {   //in the parent process
+        wait(NULL);     //waiting for the child process to finish before continuing execution of the parent process
         }
       }
     }
