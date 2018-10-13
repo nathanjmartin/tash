@@ -1,7 +1,10 @@
 # depslib dependency file v1.0
-1539137131 source:/home/critter42/tash/tash.cpp
+1539411746 source:/home/critter42/tash/tash.cpp
 	<iostream>
 	<string>
 	<vector>
 	<unistd.h>
+	<sys/wait.h>
+	<cstring>
+	<limits.h>
 
