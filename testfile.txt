@@ -1,0 +1,10 @@
+total 48
+drwxr-xr-x 4 critter42 critter42  4096 Oct  9 21:14 bin
+-rw-r--r-- 1 critter42 critter42   108 Oct  9 20:38 main.cpp
+drwxr-xr-x 4 critter42 critter42  4096 Oct  9 21:14 obj
+-rw-r--r-- 1 critter42 critter42  1047 Oct 11 00:20 tash.cbp
+-rw-r--r-- 1 critter42 critter42  5140 Oct 14 00:38 tash.cpp
+-rw-r--r-- 1 critter42 critter42   161 Oct 13 01:22 tash.depend
+-rw-r--r-- 1 critter42 critter42   363 Oct 14 00:26 tash.layout
+-rw-r--r-- 1 critter42 critter42     0 Oct 14 00:39 testfile.txt
+-rwxr-xr-x 1 critter42 critter42 13780 Oct 13 22:53 uofmsh
