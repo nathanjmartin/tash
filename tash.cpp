@@ -44,12 +44,14 @@ int main() {
     if(strstr(command,"exit")) {   //conditional for the exit command
       exit(0);  //equivalent of setting status to 0 (false) to end the loop
     }
+    //printing out the current working directory
+    else if(strstr(command,"pwd")) {
+      cout << GetCurrent() << endl;
+    }
 
 
-
-// CD COMMAND
+    // CD COMMAND
      else if(strstr(command,"cd")!=NULL){ //conditional for cd command
-
        token = strtok(command, " "); //get the first token again
        token = strtok(NULL, " "); //get the 2nd token - the argument
        if(token != NULL) {
