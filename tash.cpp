@@ -23,7 +23,21 @@ string GetCurrent(void){//get current directory for prompt
   string currentDir(buffer);//put cwd in string
   return currentDir;//return string
 }
+int shellcmd(char *cmd){
+      pid_t pid = fork(); //fork process
+      if (pid == -1){
+          cout << "Failed to fork!"; // error, failed to fork()
+      }else if (pid > 0){
+          // parent
 
+        int status;
+        waitpid(pid, &status, 0); //wait for status
+      }else if (pid==0){
+          // child
+          execl(SHELL, SHELL, "-c", cmd, NULL); //execute the command with its arguments
+        }
+    return 0;
+}
 //main method
 int main() {
   string userInput;//string to hold the user's input
@@ -45,9 +59,9 @@ int main() {
       exit(0);  //equivalent of setting status to 0 (false) to end the loop
     }
     //printing out the current working directory
-    else if(strstr(command,"pwd")) {
-      cout << GetCurrent() << endl;
-    }
+//    else if(strstr(command,"pwd")) {
+//    cout << GetCurrent() << endl;
+//    }
 
 
     // CD COMMAND
@@ -62,16 +76,17 @@ int main() {
        }
      }
 
-    else if(strstr(command,"ls")!=NULL) {//conditional for ls command
-      int pid = fork();
-
-      if (pid == 0){  //in the child process
-        execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
-        }
-      else if(pid > 0) {   //in the parent process
-        wait(NULL);     //waiting for the child process  to finish before continuing execution of the parent process
-        }
-      }
+//    else if(strstr(command,"ls")!=NULL) {//conditional for ls command
+//      int pid = fork();
+//
+//      if (pid == 0){  //in the child process
+//        execl("/bin/ls", "ls", "-r", "-t", "-l", (char *) 0);
+//        }
+//      else if(pid > 0) {   //in the parent process
+//        wait(NULL);     //waiting for the child process  to finish before continuing execution of the parent process
+//        }
+//      }
+    else shellcmd(command);
     }
   return 0;
 }
