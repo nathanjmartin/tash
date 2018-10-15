@@ -123,7 +123,8 @@ int main() {
           dup2(filedescriptor, 0); //dup file descriptor
           execl(SHELL, SHELL, "-c", left, NULL); //execute command
 
-        }else if(strstr(command,"|")!=NULL){
+        }
+        /* else if(strstr(command,"|")!=NULL){
            // pipe output from first command to second command
            // following commands tokenize string into:
           // left side of redirect symbol
@@ -135,7 +136,7 @@ int main() {
           redirectToken = strtok(redirectToken, " ");
           redirectToken = strtok(redirectToken, "\n");
           char* right = redirectToken;//right size token (second command)
-          }
+        } */
         }
       }
     else shellcmd(command);
